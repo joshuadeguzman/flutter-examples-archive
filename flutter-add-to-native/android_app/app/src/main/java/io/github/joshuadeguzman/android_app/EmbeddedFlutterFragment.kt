@@ -10,10 +10,8 @@ import io.flutter.view.FlutterMain
 import io.flutter.view.FlutterNativeView
 import io.flutter.view.FlutterRunArguments
 import io.flutter.view.FlutterView
-import io.github.joshuadeguzman.FruitsEmbeddedChannelMessageOuterClass
-import io.github.joshuadeguzman.UserOuterClass
 import io.github.joshuadeguzman.android_app.flutter.channels.InitializationChannel
-import io.github.joshuadeguzman.android_app.flutter.channels.RouteChannel
+import io.github.joshuadeguzman.android_app.flutter.channels.AnimationControllerChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
 import kotlinx.android.synthetic.main.fragment_embedded_flutter_example.*
 
@@ -23,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_embedded_flutter_example.*
 class EmbeddedFlutterFragment : Fragment() {
 
     private var initializationChannel: InitializationChannel? = null
-    private var routeChannel: RouteChannel? = null
+    private var animationControllerChannel: AnimationControllerChannel? = null
     private var flutterView: FlutterView? = null
 
     companion object {
@@ -61,21 +59,11 @@ class EmbeddedFlutterFragment : Fragment() {
         initializationChannel?.setupWithMessenger()
 
         // Setup routes channel
-        routeChannel = RouteChannel(flutterView!!)
-        routeChannel?.setupWithMessenger()
+        animationControllerChannel = AnimationControllerChannel(flutterView!!)
+        animationControllerChannel?.setupWithMessenger()
 
         // Initialize FlutterView channel
         this.initializeFlutterView()
-
-        // TODO: BottomNavBar
-        // btFruits.setOnClickListener {
-        //    this.loadFlutterView("/embeddedFruits")
-        //}
-
-        // TODO: BottomNavBar
-        // btVegetables.setOnClickListener {
-        //    this.loadFlutterView("/embeddedVegetables")
-        // }
     }
 
     private fun initializeFlutterView() {
@@ -97,24 +85,5 @@ class EmbeddedFlutterFragment : Fragment() {
                 emptyView.visibility = View.VISIBLE
             })
         }
-    }
-
-    private fun loadFlutterView(route: String) {
-        // Route
-        val user = UserOuterClass.User.newBuilder()
-            .setId(1)
-            .setUsername("joshuadeguzman")
-            .setFirstName("Joshua")
-            .setLastName("de Guzman")
-            .build()
-
-        val message = FruitsEmbeddedChannelMessageOuterClass.FruitsEmbeddedChannelMessage.newBuilder()
-            .setRoute(route)
-            .setUser(user)
-            .setIsOwnProfile(true)
-            .build()
-            .toByteArray()
-
-        routeChannel?.sendChannelMessage(message)
     }
 }

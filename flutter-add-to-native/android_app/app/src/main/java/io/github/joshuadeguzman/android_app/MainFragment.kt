@@ -28,7 +28,6 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Handle bottom navigation
         navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.action_embed_1 -> this.loadEmbeddingFlutterViewFragment()
@@ -37,13 +36,9 @@ class MainFragment : Fragment() {
             true
         }
 
-        // Show initial view
         this.loadEmbeddingFlutterViewFragment()
     }
 
-    /**
-     * This view shows how you can display Native Android UI and Flutter views side by side inside one screen.
-     */
     private fun loadEmbeddingFlutterViewFragment() {
         Log.d(TAG, "Embedded FlutterView")
         embeddedFlutterViewFragment = EmbeddedFlutterViewFragment.newInstance()
@@ -54,10 +49,6 @@ class MainFragment : Fragment() {
         }
     }
 
-    /**
-     * This embedded Flutter fragment shows how you can control the switching of views in a Flutter code
-     * using a custom route channel for embedded views inside a Native Android UI view.
-     */
     private fun loadEmbeddingFragment() {
         Log.d(TAG, "Embedded Fragment")
         embeddedFlutterFragment = EmbeddedFlutterFragment.newInstance()

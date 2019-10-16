@@ -3,10 +3,8 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/embedded/embedded_container.dart';
-import 'package:flutter_app/embedded/embedded_speakers_sponsors.dart';
-import 'package:flutter_app/embedded/vegetables.dart';
-import 'embedded/fruits.dart';
+import 'package:flutter_app/embedded_flare_controller/embedded_flare_controller.dart';
+import 'package:flutter_app/embedded_list_view/embedded_speakers_sponsors.dart';
 
 // Basic Flutter app with default entry point "main"
 void main() => runApp(BasicFlutterApp());
@@ -32,7 +30,6 @@ class BasicFlutterAppState extends State<BasicFlutterApp> {
     );
   }
 }
-
 
 // Custom dart entry point
 // More on: https://github.com/flutter/flutter/wiki/Experimental:-Launch-Flutter-with-non-main-entrypoint
@@ -61,9 +58,8 @@ class FlutterAppState extends State<FlutterApp> {
         primaryColor: Colors.blue,
       ),
       routes: {
-        '/': (context) => EmbeddedContainer(),
-        '/embeddedFruits': (context) => FruitsEmbedded(),
-        '/embeddedVegetables': (context) => VegetablesEmbedded(),
+        '/': (context) => Container(),
+        '/embeddedFlareController': (context) => EmbeddedFlareController(),
       },
     );
   }

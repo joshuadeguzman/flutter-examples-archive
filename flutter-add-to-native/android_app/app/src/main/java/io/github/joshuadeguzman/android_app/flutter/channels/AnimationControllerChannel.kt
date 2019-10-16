@@ -7,13 +7,13 @@ import java.lang.RuntimeException
 /**
  * Created by Joshua de Guzman on 2019-08-19.
  */
-class RouteChannel(
+class AnimationControllerChannel(
     private var binaryMessenger: BinaryMessenger
 ) : IFlutterChannel {
 
     companion object {
-        val TAG = RouteChannel::class.java.simpleName
-        private const val CHANNEL_NAME = "routeChannel"
+        val TAG = AnimationControllerChannel::class.java.simpleName
+        private const val CHANNEL_NAME = "animationControllerChannel"
     }
 
     private var channel: BasicMessageChannel<Any>? = null
