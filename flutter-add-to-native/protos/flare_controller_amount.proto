@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 syntax = "proto3";
-option java_package = "io.github.joshuadeguzman.flutter_add_to_native";
+option java_package = "io.github.joshuadeguzman.android_app.protos";
 
 message FlareControllerAmount {
   double rockAmount = 1;

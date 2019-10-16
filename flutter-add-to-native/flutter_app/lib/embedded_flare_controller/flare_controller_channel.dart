@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/services.dart';
-import 'package:flutter_app/models/flare_controller_amount.dart';
+import 'package:flutter_app/protos/flare_controller_amount.pb.dart';
 
 class FlareControllerChannelHandler {
   static String _channelName = "flareControllerChannel";
@@ -15,7 +15,7 @@ class FlareControllerChannelHandler {
       void Function(FlareControllerAmount amount) handler) {
     channel.setMessageHandler(
       (json) async {
-        FlareControllerAmount amount = FlareControllerAmount.fromJson(json);
+        FlareControllerAmount amount = FlareControllerAmount.fromBuffer(json);
         return handler(amount);
       },
     );

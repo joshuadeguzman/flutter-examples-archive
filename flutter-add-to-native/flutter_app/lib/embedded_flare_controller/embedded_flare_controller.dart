@@ -8,7 +8,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/embedded_flare_controller/flare_controller_channel.dart';
-import 'package:flutter_app/models/flare_controller_amount.dart';
+import 'package:flutter_app/protos/flare_controller_amount.pb.dart';
 
 class EmbeddedFlareController extends StatefulWidget {
   @override
@@ -52,17 +52,16 @@ class EmbeddedFlareControllerState extends State<EmbeddedFlareController>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Column(
-          children: <Widget>[
-            FlareActor(
-              "assets/Penguin.flr",
-              alignment: Alignment.center,
-              isPaused: _isPaused,
-              fit: BoxFit.cover,
-              animation: "walk",
-              controller: this,
-            ),
-          ],
+        child: Container(
+          height: 300,
+          child: FlareActor(
+            "assets/Penguin.flr",
+            alignment: Alignment.center,
+            isPaused: _isPaused,
+            fit: BoxFit.cover,
+            animation: "walk",
+            controller: this,
+          ),
         ),
       ),
     );
@@ -72,6 +71,8 @@ class EmbeddedFlareControllerState extends State<EmbeddedFlareController>
     setState(() {
       _rockAmount = amount.rockAmount;
       _speed = amount.speed;
+      print("Flutter: _rockAmount $_rockAmount");
+      print("Flutter: _speed $_speed");
     });
   }
 }

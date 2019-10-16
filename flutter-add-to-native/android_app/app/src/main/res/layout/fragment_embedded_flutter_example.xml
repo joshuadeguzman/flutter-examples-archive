@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/mainView"
+    <FrameLayout
+        android:id="@+id/flutterContainerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:layout_above="@id/navigation">
+        android:layout_above="@id/containerFlareControls" />
 
-        <FrameLayout
-            android:id="@+id/flutterContainerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/emptyView"
+    <LinearLayout
+        android:id="@+id/containerFlareControls"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <ProgressBar
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </FrameLayout>
-</LinearLayout>
+        <SeekBar
+            android:id="@+id/rangeRockAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:max="100"
+            android:progress="0" />
+
+        <SeekBar
+            android:id="@+id/rangeSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="300"
+            android:progress="0" />
+    </LinearLayout>
+</RelativeLayout>

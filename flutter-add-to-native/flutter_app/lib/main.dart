@@ -58,8 +58,7 @@ class FlutterAppState extends State<FlutterApp> {
         primaryColor: Colors.blue,
       ),
       routes: {
-        '/': (context) => Container(),
-        '/embeddedFlareController': (context) => EmbeddedFlareController(),
+        '/': (context) => EmbeddedFlareController(),
       },
     );
   }

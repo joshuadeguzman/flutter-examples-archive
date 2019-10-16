@@ -8,13 +8,13 @@ class FlareControllerAmount {
 
   FlareControllerAmount({this.rockAmount, this.speed});
 
-  FlareControllerAmount.fromJson(Map<String, dynamic> json) {
+  FlareControllerAmount.fromJson(Map<String, double> json) {
     rockAmount = json['rockAmount'];
     speed = json['speed'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, double>();
     data['rockAmount'] = this.rockAmount;
     data['speed'] = this.speed;
     return data;

@@ -7,13 +7,13 @@ import java.lang.RuntimeException
 /**
  * Created by Joshua de Guzman on 2019-08-19.
  */
-class AnimationControllerChannel(
+class FlareControllerChannel(
     private var binaryMessenger: BinaryMessenger
 ) : IFlutterChannel {
 
     companion object {
-        val TAG = AnimationControllerChannel::class.java.simpleName
-        private const val CHANNEL_NAME = "animationControllerChannel"
+        val TAG = FlareControllerChannel::class.java.simpleName
+        private const val CHANNEL_NAME = "flareControllerChannel"
     }
 
     private var channel: BasicMessageChannel<Any>? = null
@@ -32,8 +32,6 @@ class AnimationControllerChannel(
 
     override fun sendChannelMessage(message: Any) {
         Log.d(TAG, "Sending message...")
-        channel?.send(message) {
-            Log.d(TAG, "Message: $it sent!")
-        }
+        channel?.send(message)
     }
 }

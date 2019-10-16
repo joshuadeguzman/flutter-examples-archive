@@ -1,18 +1,18 @@
 package io.github.joshuadeguzman.android_app
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import io.flutter.view.FlutterMain
 import io.flutter.view.FlutterNativeView
 import io.flutter.view.FlutterRunArguments
 import io.flutter.view.FlutterView
-import io.github.joshuadeguzman.android_app.flutter.channels.InitializationChannel
-import io.github.joshuadeguzman.android_app.flutter.channels.AnimationControllerChannel
+import io.github.joshuadeguzman.android_app.flutter.channels.FlareControllerChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
+import io.github.joshuadeguzman.android_app.protos.FlareControllerAmountOuterClass
 import kotlinx.android.synthetic.main.fragment_embedded_flutter_example.*
 
 /**
@@ -20,9 +20,11 @@ import kotlinx.android.synthetic.main.fragment_embedded_flutter_example.*
  */
 class EmbeddedFlutterFragment : Fragment() {
 
-    private var initializationChannel: InitializationChannel? = null
-    private var animationControllerChannel: AnimationControllerChannel? = null
+    private var flareControllerChannel: FlareControllerChannel? = null
     private var flutterView: FlutterView? = null
+
+    private var rockAmount = 0.0
+    private var speed = 0.0
 
     companion object {
         var TAG = EmbeddedFlutterFragment::class.java.simpleName
@@ -40,7 +42,7 @@ class EmbeddedFlutterFragment : Fragment() {
     }
 
     private fun loadFlutterFragment() {
-        // TODO: Migrate this to a reusable based custom Flutter main file
+        // TODO: Check Flutter v1.9.x changes
         FlutterMain.startInitialization(activity!!.applicationContext)
         FlutterMain.ensureInitializationComplete(activity!!.applicationContext, null)
 
@@ -54,36 +56,54 @@ class EmbeddedFlutterFragment : Fragment() {
         flutterView?.runFromBundle(arguments)
         GeneratedPluginRegistrant.registerWith(flutterView!!.pluginRegistry)
 
-        // Setup initialization channel
-        initializationChannel = InitializationChannel(flutterView!!)
-        initializationChannel?.setupWithMessenger()
-
         // Setup routes channel
-        animationControllerChannel = AnimationControllerChannel(flutterView!!)
-        animationControllerChannel?.setupWithMessenger()
+        flareControllerChannel = FlareControllerChannel(flutterView!!)
+        flareControllerChannel?.setupWithMessenger()
 
         // Initialize FlutterView channel
-        this.initializeFlutterView()
+        flutterView?.let {
+            flutterContainerView.addView(it)
+        }
+
+        // Subscribe to seekbar changes
+        rangeRockAmount.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                rockAmount = p1.toDouble() / 100
+                sendFlareAmountUpdate()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+                //
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+                //
+            }
+        })
+
+        rangeSpeed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                speed = p1.toDouble() / 100
+                sendFlareAmountUpdate()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+                //
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+                //
+            }
+        })
     }
 
-    private fun initializeFlutterView() {
-        flutterView?.let {
-            initializationChannel?.setupMessageHandler({ message ->
-                Log.d(MainFragment.TAG, "Message from Flutter $message")
+    private fun sendFlareAmountUpdate() {
+        val amount = FlareControllerAmountOuterClass.FlareControllerAmount.newBuilder()
+            .setRockAmount(rockAmount)
+            .setSpeed(speed)
+            .build()
+            .toByteArray()
 
-                // Inflate FlutterView
-                flutterContainerView.addView(it)
-
-                // Update visibility of android layout groups
-                mainView.visibility = View.VISIBLE
-                emptyView.visibility = View.GONE
-            }, { error ->
-                Log.e(MainFragment.TAG, "Error message from Flutter ${error?.localizedMessage}")
-
-                // Update visibility of android layout groups
-                mainView.visibility = View.GONE
-                emptyView.visibility = View.VISIBLE
-            })
-        }
+        flareControllerChannel?.sendChannelMessage(amount)
     }
 }
