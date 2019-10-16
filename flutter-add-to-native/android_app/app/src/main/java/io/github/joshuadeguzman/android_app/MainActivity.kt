@@ -5,7 +5,7 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
-    val mainFragment = MainFragment.newInstance()
+    private val mainFragment = MainFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,5 +2,8 @@
     <string name="app_name">Android App</string>
 
     <string name="button_title_agenda">Agenda</string>
+    <string name="button_title_calendar">Calendar</string>
     <string name="button_title_history">History</string>
+
+    <string name="label_error_loading_flutter_view">Cannot load Flutter view</string>
 </resources>
