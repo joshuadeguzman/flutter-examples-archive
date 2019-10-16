@@ -52,15 +52,57 @@ class EmbeddedFlareControllerState extends State<EmbeddedFlareController>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Container(
-          height: 300,
-          child: FlareActor(
-            "assets/Penguin.flr",
-            alignment: Alignment.center,
-            isPaused: _isPaused,
-            fit: BoxFit.cover,
-            animation: "walk",
-            controller: this,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 300,
+                width: 300,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
+                  child: FlareActor(
+                    "assets/Penguin.flr",
+                    alignment: Alignment.center,
+                    isPaused: _isPaused,
+                    fit: BoxFit.cover,
+                    animation: "walk",
+                    controller: this,
+                  ),
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top: 16)),
+              Text(
+                'Data received in Flutter',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top: 12)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Material(
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    elevation: 12,
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      child: Text('Rock Amount: $_rockAmount'),
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(right: 16)),
+                  Material(
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    elevation: 12,
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      child: Text('Speed: $_speed'),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),

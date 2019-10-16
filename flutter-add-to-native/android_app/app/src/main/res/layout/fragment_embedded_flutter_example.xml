@@ -18,6 +18,20 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Controls from Native Android"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Rock Amount"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+
         <SeekBar
             android:id="@+id/rangeRockAmount"
             android:layout_width="match_parent"
@@ -25,6 +39,13 @@
             android:layout_marginBottom="20dp"
             android:max="100"
             android:progress="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Speed"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
 
         <SeekBar
             android:id="@+id/rangeSpeed"
