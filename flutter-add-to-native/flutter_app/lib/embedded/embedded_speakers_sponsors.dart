@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class EmbeddedSpeakersSponsor extends StatelessWidget {
@@ -25,6 +26,8 @@ class EmbeddedSpeakersSponsor extends StatelessWidget {
             Container(
               height: 160,
               child: ListView(
+                // Scroll behavior for iOS
+                // physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 padding: EdgeInsets.only(left: 12),
                 children: <Widget>[
@@ -45,6 +48,8 @@ class EmbeddedSpeakersSponsor extends StatelessWidget {
             Container(
               height: 100,
               child: ListView(
+                // Scroll behavior for iOS
+                // physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.only(left: 12),
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
@@ -56,6 +61,15 @@ class EmbeddedSpeakersSponsor extends StatelessWidget {
                 ],
               ),
             ),
+            //Container(
+            //  height: 150,
+            //  child: FlareActor(
+            //    "assets/Penguin.flr",
+            //    alignment: Alignment.center,
+            //    fit: BoxFit.cover,
+            //    animation: "walk",
+            //  ),
+            //),
           ],
         ),
       ),
