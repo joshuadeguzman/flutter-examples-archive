@@ -9,8 +9,8 @@
         android:id="@+id/mainView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/navigation"
-        tools:visibility="gone">
+        android:visibility="gone"
+        android:layout_above="@id/navigation">
 
         <FrameLayout
             android:id="@+id/flutterContainerView"
@@ -21,15 +21,11 @@
     <FrameLayout
         android:id="@+id/emptyView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/emptyViewMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ProgressBar
             android:layout_gravity="center"
-            android:text="@string/label_error_loading_flutter_view" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </FrameLayout>
 </LinearLayout>

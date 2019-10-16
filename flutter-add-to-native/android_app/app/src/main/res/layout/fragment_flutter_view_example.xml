@@ -5,28 +5,46 @@
     android:fillViewport="true">
 
     <LinearLayout
-        android:id="@+id/mainView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="14dp"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/mainView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="@string/heading_title_event"
-            android:textColor="@android:color/black"
-            android:textSize="32dp"
-            android:textStyle="bold" />
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="14dp"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/heading_title_event"
+                android:textColor="@android:color/black"
+                android:textSize="32dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="@string/message_title_event"
+                android:textColor="@android:color/black"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/emptyView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:text="@string/message_title_event"
-            android:textColor="@android:color/black"
-            android:textSize="14dp" />
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
     </LinearLayout>
 </ScrollView>

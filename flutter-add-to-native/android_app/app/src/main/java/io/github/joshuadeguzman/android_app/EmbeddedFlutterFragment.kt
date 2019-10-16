@@ -15,7 +15,7 @@ import io.github.joshuadeguzman.UserOuterClass
 import io.github.joshuadeguzman.android_app.flutter.channels.InitializationChannel
 import io.github.joshuadeguzman.android_app.flutter.channels.RouteChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
-import kotlinx.android.synthetic.main.fragment_embedded_flutter.*
+import kotlinx.android.synthetic.main.fragment_embedded_flutter_example.*
 
 /**
  * Created by Joshua de Guzman on 2019-10-16.
@@ -32,7 +32,7 @@ class EmbeddedFlutterFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_embedded_flutter, container, false)
+        return inflater.inflate(R.layout.fragment_embedded_flutter_example, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

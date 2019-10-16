@@ -2,9 +2,8 @@
     <string name="app_name">Android App</string>
 
     <!-- BottomNavigationView -->
-    <string name="button_title_event">Event</string>
-    <string name="button_title_agenda">Agenda</string>
-    <string name="button_title_history">History</string>
+    <string name="button_title_embed_1">Example 1</string>
+    <string name="button_title_embed_2">Example 2</string>
 
     <!-- Event -->
     <string name="heading_title_event">Event</string>

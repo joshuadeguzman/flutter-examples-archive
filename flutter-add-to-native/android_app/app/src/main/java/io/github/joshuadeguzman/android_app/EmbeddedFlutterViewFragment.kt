@@ -12,11 +12,11 @@ import kotlinx.android.synthetic.main.fragment_flutter_view_example.*
 /**
  * Created by Joshua de Guzman on 2019-10-16.
  */
-class EmbeddedFlutterView : Fragment() {
+class EmbeddedFlutterViewFragment : Fragment() {
 
     companion object {
-        var TAG = EmbeddedFlutterView::class.java.simpleName
-        fun newInstance() = EmbeddedFlutterView()
+        var TAG = EmbeddedFlutterViewFragment::class.java.simpleName
+        fun newInstance() = EmbeddedFlutterViewFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

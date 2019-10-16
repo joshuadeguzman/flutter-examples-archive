@@ -2,17 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_event"
+        android:id="@+id/action_embed_1"
         android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="@string/button_title_event" />
+        android:title="@string/button_title_embed_1" />
 
     <item
-        android:id="@+id/action_agenda"
-        android:icon="@android:drawable/ic_menu_agenda"
-        android:title="@string/button_title_agenda" />
-
-    <item
-        android:id="@+id/action_history"
-        android:icon="@android:drawable/ic_menu_recent_history"
-        android:title="@string/button_title_history" />
+        android:id="@+id/action_embed_2"
+        android:icon="@android:drawable/ic_media_play"
+        android:title="@string/button_title_embed_2" />
 </menu>

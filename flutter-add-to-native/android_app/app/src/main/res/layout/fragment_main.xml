@@ -14,14 +14,7 @@
         tools:visibility="gone">
 
         <FrameLayout
-            android:id="@+id/fragmentEmbeddedFlutter"
-            android:layout_width="match_parent"
-            android:visibility="gone"
-            android:layout_height="match_parent" />
-
-        <FrameLayout
-            android:id="@+id/fragmentEvent"
-            android:visibility="gone"
+            android:id="@+id/embeddedFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>

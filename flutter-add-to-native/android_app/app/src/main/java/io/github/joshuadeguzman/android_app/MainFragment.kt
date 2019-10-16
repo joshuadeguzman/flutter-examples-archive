@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
  */
 class MainFragment : Fragment() {
 
-    private var eventFragment: EventFragment? = null
+    private var embeddedFlutterViewFragment: EmbeddedFlutterViewFragment? = null
     private var embeddedFlutterFragment: EmbeddedFlutterFragment? = null
 
     companion object {
@@ -28,33 +28,28 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize fragments
-        this.loadCalendarFragment()
-        this.loadEmbeddedFlutterFragment()
-
         // Handle bottom navigation
         navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.action_event -> this.showEvent()
-                R.id.action_agenda -> this.showAgenda()
-                R.id.action_history -> this.showHistory()
+                R.id.action_embed_1 -> this.loadEmbeddingFlutterViewFragment()
+                R.id.action_embed_2 -> this.loadEmbeddingFragment()
             }
             true
         }
 
         // Show initial view
-        this.showEvent()
+        this.loadEmbeddingFlutterViewFragment()
     }
 
     /**
-     * This calendar fragment shows how you can display Native Android UI and Flutter views side by side inside one screen.
+     * This view shows how you can display Native Android UI and Flutter views side by side inside one screen.
      */
-    private fun loadCalendarFragment() {
-        eventFragment = EventFragment.newInstance()
-
-        eventFragment?.let {
+    private fun loadEmbeddingFlutterViewFragment() {
+        Log.d(TAG, "Embedded FlutterView")
+        embeddedFlutterViewFragment = EmbeddedFlutterViewFragment.newInstance()
+        embeddedFlutterViewFragment?.let {
             val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
-            fragmentTransaction?.replace(R.id.fragmentEvent, it, EventFragment.TAG)
+            fragmentTransaction?.replace(R.id.embeddedFragment, it, EmbeddedFlutterViewFragment.TAG)
             fragmentTransaction?.commitAllowingStateLoss()
         }
     }
@@ -63,38 +58,13 @@ class MainFragment : Fragment() {
      * This embedded Flutter fragment shows how you can control the switching of views in a Flutter code
      * using a custom route channel for embedded views inside a Native Android UI view.
      */
-    private fun loadEmbeddedFlutterFragment() {
+    private fun loadEmbeddingFragment() {
+        Log.d(TAG, "Embedded Fragment")
         embeddedFlutterFragment = EmbeddedFlutterFragment.newInstance()
-
         embeddedFlutterFragment?.let {
             val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
-            fragmentTransaction?.replace(R.id.fragmentEmbeddedFlutter, it, EmbeddedFlutterFragment.TAG)
+            fragmentTransaction?.replace(R.id.embeddedFragment, it, EmbeddedFlutterFragment.TAG)
             fragmentTransaction?.commitAllowingStateLoss()
         }
-    }
-
-    private fun showEvent() {
-        Log.d(TAG, "Event")
-        this.showEventFragment()
-    }
-
-    private fun showAgenda() {
-        Log.d(TAG, "Agenda")
-        this.showEmbeddedFlutterFragment()
-    }
-
-    private fun showHistory() {
-        Log.d(TAG, "History")
-        this.showEmbeddedFlutterFragment()
-    }
-
-    private fun showEventFragment() {
-        fragmentEmbeddedFlutter.visibility = View.GONE
-        fragmentEvent.visibility = View.VISIBLE
-    }
-
-    private fun showEmbeddedFlutterFragment() {
-        fragmentEmbeddedFlutter.visibility = View.VISIBLE
-        fragmentEvent.visibility = View.GONE
     }
 }
