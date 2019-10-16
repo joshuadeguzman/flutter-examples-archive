@@ -3,9 +3,8 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/embedded/embedded_container.dart';
+import 'package:flutter_app/embedded/embedded_speakers_sponsors.dart';
 import 'package:flutter_app/embedded/vegetables.dart';
-
 import 'embedded/fruits.dart';
 
 void main() => runApp(FlutterApp());
@@ -36,9 +35,11 @@ class FlutterAppState extends State<FlutterApp> {
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
+      // TODO: Update initialize route to '/
       initialRoute: '/',
       routes: {
-        '/': (context) => EmbeddedContainer(),
+        '/': (context) => EmbeddedSpeakersSponsor(),
+        // '/': (context) => EmbeddedContainer(),
         '/embeddedFruits': (context) => FruitsEmbedded(),
         '/embeddedVegetables': (context) => VegetablesEmbedded(),
       },
