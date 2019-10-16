@@ -3,8 +3,9 @@
 // license that can be found in the LICENSE file.
 
 syntax = "proto3";
-option java_package = "io.github.joshuadeguzman";
+option java_package = "io.github.joshuadeguzman.flutter_add_to_native";
 
-message RoutesChannel {
-  string route = 1;
+message FlareControllerAmount {
+  double rockAmount = 1;
+  double speed = 2;
 }
