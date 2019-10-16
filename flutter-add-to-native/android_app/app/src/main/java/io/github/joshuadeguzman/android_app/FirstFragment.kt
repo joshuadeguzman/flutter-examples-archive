@@ -62,14 +62,15 @@ class FirstFragment : Fragment() {
         // Initialize FlutterView channel
         this.initializeFlutterView()
 
-        // Subscribe to button clicks
-        btFruits.setOnClickListener {
-            this.loadFlutterView("/embeddedFruits")
-        }
+        // TODO: BottomNavBar
+        // btFruits.setOnClickListener {
+        //    this.loadFlutterView("/embeddedFruits")
+        //}
 
-        btVegetables.setOnClickListener {
-            this.loadFlutterView("/embeddedVegetables")
-        }
+        // TODO: BottomNavBar
+        // btVegetables.setOnClickListener {
+        //    this.loadFlutterView("/embeddedVegetables")
+        // }
     }
 
     private fun initializeFlutterView() {

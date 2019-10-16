@@ -14,28 +14,7 @@
         <FrameLayout
             android:id="@+id/flutterContainerView"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/flutterContainerView"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btFruits"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Get Fruits" />
-
-            <Button
-                android:id="@+id/btVegetables"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Get Vegetables" />
-        </LinearLayout>
+            android:layout_height="match_parent" />
     </RelativeLayout>
 
     <FrameLayout

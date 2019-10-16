@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 class MainFragment : Fragment() {
 
     val firstFragment = FirstFragment.newInstance()
-    val secondFragment = SecondFragment.newInstance()
 
     companion object {
         var TAG = MainFragment::class.java.simpleName
@@ -27,18 +26,11 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.loadFirstFragment()
-        this.loadSecondFragment()
     }
 
     private fun loadFirstFragment() {
         val fragmentTransaction = childFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.firstFragment, firstFragment, FirstFragment.TAG)
-        fragmentTransaction.commitAllowingStateLoss()
-    }
-
-    private fun loadSecondFragment() {
-        val fragmentTransaction = childFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.secondFragment, secondFragment, SecondFragment.TAG)
         fragmentTransaction.commitAllowingStateLoss()
     }
 }
