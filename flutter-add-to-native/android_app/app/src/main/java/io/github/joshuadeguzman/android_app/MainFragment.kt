@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
  */
 class MainFragment : Fragment() {
 
-    private var calendarFragment: CalendarFragment? = null
+    private var eventFragment: EventFragment? = null
     private var embeddedFlutterFragment: EmbeddedFlutterFragment? = null
 
     companion object {
@@ -35,23 +35,26 @@ class MainFragment : Fragment() {
         // Handle bottom navigation
         navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.action_event -> this.showEvent()
                 R.id.action_agenda -> this.showAgenda()
-                R.id.action_calendar -> this.showCalendar()
                 R.id.action_history -> this.showHistory()
             }
             true
         }
+
+        // Show initial view
+        this.showEvent()
     }
 
     /**
      * This calendar fragment shows how you can display Native Android UI and Flutter views side by side inside one screen.
      */
     private fun loadCalendarFragment() {
-        calendarFragment = CalendarFragment.newInstance()
+        eventFragment = EventFragment.newInstance()
 
-        calendarFragment?.let {
+        eventFragment?.let {
             val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
-            fragmentTransaction?.replace(R.id.fragmentCalendar, it, CalendarFragment.TAG)
+            fragmentTransaction?.replace(R.id.fragmentEvent, it, EventFragment.TAG)
             fragmentTransaction?.commitAllowingStateLoss()
         }
     }
@@ -70,28 +73,28 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun showAgenda() {
-        Log.d(TAG, "Agenda")
-        showEmbeddedFlutterFragment()
+    private fun showEvent() {
+        Log.d(TAG, "Event")
+        this.showEventFragment()
     }
 
-    private fun showCalendar() {
-        Log.d(TAG, "Calendar")
-        showCalendarFragment()
+    private fun showAgenda() {
+        Log.d(TAG, "Agenda")
+        this.showEmbeddedFlutterFragment()
     }
 
     private fun showHistory() {
         Log.d(TAG, "History")
-        showEmbeddedFlutterFragment()
+        this.showEmbeddedFlutterFragment()
     }
 
-    private fun showCalendarFragment() {
+    private fun showEventFragment() {
         fragmentEmbeddedFlutter.visibility = View.GONE
-        fragmentCalendar.visibility = View.VISIBLE
+        fragmentEvent.visibility = View.VISIBLE
     }
 
     private fun showEmbeddedFlutterFragment() {
         fragmentEmbeddedFlutter.visibility = View.VISIBLE
-        fragmentCalendar.visibility = View.GONE
+        fragmentEvent.visibility = View.GONE
     }
 }

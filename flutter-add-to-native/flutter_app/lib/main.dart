@@ -3,11 +3,36 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/embedded/embedded_container.dart';
 import 'package:flutter_app/embedded/embedded_speakers_sponsors.dart';
 import 'package:flutter_app/embedded/vegetables.dart';
 import 'embedded/fruits.dart';
 
-void main() => runApp(FlutterApp());
+// Basic Flutter app with default entry point "main"
+void main() => runApp(BasicFlutterApp());
+
+class BasicFlutterApp extends App {
+  @override
+  State<StatefulWidget> createState() {
+    return BasicFlutterAppState();
+  }
+}
+
+class BasicFlutterAppState extends State<BasicFlutterApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      routes: {
+        '/': (context) => EmbeddedSpeakersSponsor(),
+      },
+    );
+  }
+}
+
 
 // Custom dart entry point
 // More on: https://github.com/flutter/flutter/wiki/Experimental:-Launch-Flutter-with-non-main-entrypoint
@@ -35,11 +60,8 @@ class FlutterAppState extends State<FlutterApp> {
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
-      // TODO: Update initialize route to '/
-      initialRoute: '/',
       routes: {
-        '/': (context) => EmbeddedSpeakersSponsor(),
-        // '/': (context) => EmbeddedContainer(),
+        '/': (context) => EmbeddedContainer(),
         '/embeddedFruits': (context) => FruitsEmbedded(),
         '/embeddedVegetables': (context) => VegetablesEmbedded(),
       },

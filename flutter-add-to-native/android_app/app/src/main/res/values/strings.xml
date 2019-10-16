@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">Android App</string>
 
+    <!-- BottomNavigationView -->
+    <string name="button_title_event">Event</string>
     <string name="button_title_agenda">Agenda</string>
-    <string name="button_title_calendar">Calendar</string>
     <string name="button_title_history">History</string>
 
+    <!-- Event -->
+    <string name="heading_title_event">Event</string>
+    <string name="message_title_event">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+
+    <!-- Error messages -->
     <string name="label_error_loading_flutter_view">Cannot load Flutter view</string>
 </resources>

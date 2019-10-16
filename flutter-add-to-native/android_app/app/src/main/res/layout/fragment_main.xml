@@ -20,7 +20,7 @@
             android:layout_height="match_parent" />
 
         <FrameLayout
-            android:id="@+id/fragmentCalendar"
+            android:id="@+id/fragmentEvent"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
