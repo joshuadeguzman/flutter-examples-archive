@@ -8,6 +8,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/embedded_flare_controller/flare_controller_channel.dart';
+import 'package:flutter_app/models/flare_controller_amount.dart';
 
 class EmbeddedFlareController extends StatefulWidget {
   @override
@@ -33,6 +34,21 @@ class EmbeddedFlareControllerState extends State<EmbeddedFlareController>
   }
 
   @override
+  bool advance(FlutterActorArtboard artboard, double elapsed) {
+    _rockTime += elapsed + _speed;
+    _rock.apply(_rockTime % _rock.duration, artboard, _rockAmount);
+    return true;
+  }
+
+  @override
+  void initialize(FlutterActorArtboard artboard) {
+    _rock = artboard.getAnimation("music_walk");
+  }
+
+  @override
+  void setViewTransform(Mat2D viewTransform) {}
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -52,20 +68,10 @@ class EmbeddedFlareControllerState extends State<EmbeddedFlareController>
     );
   }
 
-  void _handleFlareControlChange(String aciton) {}
-
-  @override
-  bool advance(FlutterActorArtboard artboard, double elapsed) {
-    _rockTime += elapsed + _speed;
-    _rock.apply(_rockTime % _rock.duration, artboard, _rockAmount);
-    return true;
+  void _handleFlareControlChange(FlareControllerAmount amount) {
+    setState(() {
+      _rockAmount = amount.rockAmount;
+      _speed = amount.speed;
+    });
   }
-
-  @override
-  void initialize(FlutterActorArtboard artboard) {
-    _rock = artboard.getAnimation("music_walk");
-  }
-
-  @override
-  void setViewTransform(Mat2D viewTransform) {}
 }

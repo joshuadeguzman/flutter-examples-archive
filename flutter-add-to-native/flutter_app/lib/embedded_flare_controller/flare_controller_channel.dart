@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/services.dart';
+import 'package:flutter_app/models/flare_controller_amount.dart';
 
 class FlareControllerChannelHandler {
   static String _channelName = "flareControllerChannel";
@@ -10,11 +11,13 @@ class FlareControllerChannelHandler {
   static BasicMessageChannel<dynamic> channel =
       BasicMessageChannel(_channelName, StandardMessageCodec());
 
-  static void setChannelHandler(void Function(String action) handler) {
-    channel.setMessageHandler((json) async {
-      // TODO: Extract from protos (fromBuffer)
-      // animationAction
-      return handler("");
-    });
+  static void setChannelHandler(
+      void Function(FlareControllerAmount amount) handler) {
+    channel.setMessageHandler(
+      (json) async {
+        FlareControllerAmount amount = FlareControllerAmount.fromJson(json);
+        return handler(amount);
+      },
+    );
   }
 }

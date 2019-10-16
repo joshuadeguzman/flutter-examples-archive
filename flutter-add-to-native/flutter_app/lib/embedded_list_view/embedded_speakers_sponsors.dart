@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class EmbeddedSpeakersSponsor extends StatelessWidget {
@@ -61,15 +60,6 @@ class EmbeddedSpeakersSponsor extends StatelessWidget {
                 ],
               ),
             ),
-            //Container(
-            //  height: 150,
-            //  child: FlareActor(
-            //    "assets/Penguin.flr",
-            //    alignment: Alignment.center,
-            //    fit: BoxFit.cover,
-            //    animation: "walk",
-            //  ),
-            //),
           ],
         ),
       ),

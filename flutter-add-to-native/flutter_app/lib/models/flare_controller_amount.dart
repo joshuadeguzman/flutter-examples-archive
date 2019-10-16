@@ -3,8 +3,8 @@
 // license that can be found in the LICENSE file.
 
 class FlareControllerAmount {
-  int rockAmount;
-  int speed;
+  double rockAmount;
+  double speed;
 
   FlareControllerAmount({this.rockAmount, this.speed});
 
