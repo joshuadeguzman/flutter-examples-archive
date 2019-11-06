@@ -97,7 +97,15 @@ class EmbeddedFlareControllerState extends State<EmbeddedFlareController>
                     elevation: 12,
                     child: Container(
                       padding: EdgeInsets.all(16),
-                      child: Text('Speed: $_speed'),
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.timelapse),
+                          Padding(
+                            padding: EdgeInsets.only(left: 4),
+                            child: Text('Speed: $_speed'),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
