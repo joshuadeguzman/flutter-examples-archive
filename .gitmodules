@@ -10,3 +10,11 @@
 	path = flutter-add-to-native-protobuff
 	url = https://github.com/joshuadeguzman/flutter-add-to-native-protobuff-demo
 	branch = master
+[submodule "flutter-addtoapp-basic-demo"]
+	path = flutter-addtoapp-basic-demo
+	url = https://github.com/joshuadeguzman/flutter-addtoapp-basic-demo
+	branch = master
+[submodule "flutter-addtoapp-protobuf-demo"]
+	path = flutter-addtoapp-protobuf-demo
+	url = https://github.com/joshuadeguzman/flutter-addtoapp-protobuff-demo
+	branch = master
