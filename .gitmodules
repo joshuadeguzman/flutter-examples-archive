@@ -38,3 +38,7 @@
 	path = flutter-platform-channels-basic
 	url = https://github.com/joshuadeguzman/flutter-platform-channel-basic-demo
 	branch = master
+[submodule "flutter-sample-tests"]
+	path = flutter-sample-tests
+	url = https://github.com/joshuadeguzman/flutter-sample-tests-demo
+	branch = master
