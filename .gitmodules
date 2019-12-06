@@ -18,3 +18,7 @@
 	path = flutter-addtoapp-protobuf-demo
 	url = https://github.com/joshuadeguzman/flutter-addtoapp-protobuff-demo
 	branch = master
+[submodule "flutter-implicitly-animated-widgets"]
+	path = flutter-implicitly-animated-widgets
+	url = https://github.com/joshuadeguzman/flutter-implicitly-animated-widgets-demo
+	branch = master
