@@ -26,3 +26,7 @@
 	path = flutter-moor-crud
 	url = https://github.com/joshuadeguzman/flutter-moor-crud-demo
 	branch = master
+[submodule "flutter-news"]
+	path = flutter-news
+	url = https://github.com/joshuadeguzman/flutter-news
+	branch = master
