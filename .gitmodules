@@ -34,3 +34,7 @@
 	path = flutter-landing-page-website
 	url = https://github.com/joshuadeguzman/flutterph.github.io
 	branch = master
+[submodule "flutter-platform-channels-basic"]
+	path = flutter-platform-channels-basic
+	url = https://github.com/joshuadeguzman/flutter-platform-channel-basic-demo
+	branch = master
