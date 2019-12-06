@@ -2,3 +2,11 @@
 	path = flutter-persistence
 	url = https://github.com/joshuadeguzman/flutter-persistence-demo
 	branch = master
+[submodule "flutter-moviehub"]
+	path = flutter-moviehub
+	url = https://github.com/joshuadeguzman/flutter-moviehub
+	branch = master
+[submodule "flutter-add-to-native-protobuff"]
+	path = flutter-add-to-native-protobuff
+	url = https://github.com/joshuadeguzman/flutter-add-to-native-protobuff-demo
+	branch = master
