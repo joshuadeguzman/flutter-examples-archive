@@ -1,0 +1,4 @@
+[submodule "flutter-persistence"]
+	path = flutter-persistence
+	url = https://github.com/joshuadeguzman/flutter-persistence-demo
+	branch = master
