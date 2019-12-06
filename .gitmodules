@@ -30,3 +30,7 @@
 	path = flutter-news
 	url = https://github.com/joshuadeguzman/flutter-news
 	branch = master
+[submodule "flutter-landing-page-website"]
+	path = flutter-landing-page-website
+	url = https://github.com/joshuadeguzman/flutterph.github.io
+	branch = master
