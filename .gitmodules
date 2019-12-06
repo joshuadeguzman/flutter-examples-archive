@@ -22,3 +22,7 @@
 	path = flutter-implicitly-animated-widgets
 	url = https://github.com/joshuadeguzman/flutter-implicitly-animated-widgets-demo
 	branch = master
+[submodule "flutter-moor-crud"]
+	path = flutter-moor-crud
+	url = https://github.com/joshuadeguzman/flutter-moor-crud-demo
+	branch = master
